@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Details, Countdown & Messages for Baby</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">Our Growing Family</div>
+      <nav class="nav-links">
+        <a href="index.html">Announcement</a>
+        <a href="updates.html">Monthly Updates</a>
+        <a href="details.html" class="active">Details & Messages</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <section class="section">
+      <h1 class="section-title">Countdown to Baby</h1>
+      <p class="section-subtitle">
+        We’re counting down the days until we finally get to meet this little person.
+      </p>
+
+      <div class="countdown" id="countdown">
+        <div class="count-box">
+          <div class="count-label">Days</div>
+          <div class="count-value" id="days">–</div>
+        </div>
+        <div class="count-box">
+          <div class="count-label">Hours</div>
+          <div class="count-value" id="hours">–</div>
+        </div>
+        <div class="count-box">
+          <div class="count-label">Minutes</div>
+          <div class="count-value" id="minutes">–</div>
+        </div>
+        <div class="count-box">
+          <div class="count-label">Seconds</div>
+          <div class="count-value" id="seconds">–</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Baby Shower Details</h2>
+      <p class="section-subtitle">
+        We’d love to celebrate this little life with you. Here are the details for the baby shower.
+      </p>
+
+      <p><strong>Date:</strong> To be announced</p>
+      <p><strong>Time:</strong> To be announced</p>
+      <p><strong>Location:</strong> To be announced</p>
+
+      <p style="margin-top: 0.75rem;">
+        We’ll update this section as soon as everything is finalized. Whether you can join us in person
+        or are celebrating from afar, we’re so grateful you’re part of this story.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Messages for Baby</h2>
+      <p class="section-subtitle">
+        One day, we’ll show these words to our little one. For now, they’re a reminder that this baby
+        is already surrounded by so much love.
+      </p>
+
+      <!-- Static sample messages; for a real guestbook you'd connect a form service -->
+      <div class="message-list">
+        <article class="message-card">
+          <div class="message-author">Grandma &amp; Grandpa</div>
+          <div class="message-text">
+            We can’t wait to meet you, little one. You are already the greatest joy in our hearts.
+          </div>
+        </article>
+
+        <article class="message-card">
+          <div class="message-author">Auntie</div>
+          <div class="message-text">
+            I’m saving all my best stories and all my best hugs just for you.
+          </div>
+        </article>
+
+        <article class="message-card">
+          <div class="message-author">Family Friend</div>
+          <div class="message-text">
+            You are so loved, even before you arrive. We’re cheering you on from day one.
+          </div>
+        </article>
+      </div>
+
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-soft);">
+        (If we turn this into a live guestbook later, this is where a form would go so friends and
+        family can submit their own messages.)
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Counting down to January 22, 2027 · Our Growing Family
+  </footer>
+
+  <script>
+    // Countdown to January 22, 2027
+    const targetDate = new Date("January 22, 2027 00:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const daysEl = document.getElementById("days");
+      const hoursEl = document.getElementById("hours");
+      const minutesEl = document.getElementById("minutes");
+      const secondsEl = document.getElementById("seconds");
+
+      if (distance <= 0) {
+        daysEl.textContent = "0";
+        hoursEl.textContent = "0";
+        minutesEl.textContent = "0";
+        secondsEl.textContent = "0";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor(
+        (distance % (1000 * 60 * 60)) / (1000 * 60)
+      );
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      daysEl.textContent = days;
+      hoursEl.textContent = hours;
+      minutesEl.textContent = minutes;
+      secondsEl.textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
