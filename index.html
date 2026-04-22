@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome Baby Avery Rose</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #fdf7f8;
+      --card: #ffffff;
+      --accent: #f3b7c6;
+      --accent-dark: #d98aa0;
+      --text-main: #3b3b3b;
+      --text-soft: #777777;
+      --font-heading: "Georgia", "Times New Roman", serif;
+      --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: radial-gradient(circle at top, #ffeef4 0, #fdf7f8 40%, #fdf7f8 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 2rem 1rem 3rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      border: 1px solid rgba(255, 182, 193, 0.35);
+    }
+
+    /* ------------------------------
+       Pink Bounce Animation (Option 2)
+       ------------------------------ */
+    .pink-bounce {
+      background: var(--accent);
+      color: white;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      display: inline-block;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: default;
+    }
+
+    .pink-bounce:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 8px 18px rgba(243, 183, 198, 0.45);
+    }
+
+    /* ------------------------------ */
+
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, #ffe0ea, #f7c9dd);
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      color: #ffffff;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: #fff7fb;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-date {
+      margin-top: 1.2rem;
+      font-size: 0.95rem;
+      color: #fff0f6;
+    }
+
+    .hero-ornament {
+      position: absolute;
+      inset: auto 1.5rem -1.4rem auto;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 2px dashed rgba(255, 255, 255, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #ffffff;
+      background: radial-gradient(circle at 30% 20%, #ffeef7, #f3b7c6);
+    }
+
+    .content {
+      padding: 2.5rem 1.75rem 2.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 720px) {
+      .content {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding: 2.5rem 1.25rem 2.25rem;
+      }
+      .hero-ornament {
+        display: none;
+      }
+    }
+
+    .photo-frame {
+      background: linear-gradient(135deg, #ffeef4, #ffffff);
+      border-radius: 16px;
+      padding: 0.6rem;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .photo-inner {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ddd;
+      aspect-ratio: 4 / 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .photo-note {
+      position: absolute;
+      bottom: 0.7rem;
+      right: 0.9rem;
+      font-size: 0.7rem;
+      color: white;
+    }
+
+    .details-heading {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+      color: var(--accent-dark);
+    }
+
+    .details-sub {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      margin-bottom: 1.4rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .stat {
+      background: #fdf1f5;
+      border-radius: 12px;
+      padding: 0.7rem 0.6rem;
+      text-align: center;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+      margin-bottom: 0.2rem;
+    }
+
+    .stat-value {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: var(--accent-dark);
+    }
+
+    .message {
+      font-size: 0.98rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .parents {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .parents strong {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 1.4rem 1rem 0.4rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="card">
+
+      <header class="hero">
+        <div class="pink-bounce">We joyfully announce</div>
+
+        <h1 class="hero-title">Baby Avery Rose</h1>
+        <p class="hero-subtitle">Our hearts are so full</p>
+        <p class="hero-date">Born on March 18, 2026 · 3:24 AM · Seattle, Washington</p>
+
+        <div class="hero-ornament">
+          <span>Welcome<br>to the world</span>
+        </div>
+      </header>
+
+      <section class="content">
+        <div class="photo-frame">
+          <div class="photo-inner">
+            <!-- Replace with your image -->
+            Your baby photo goes here
+          </div>
+
+          <div class="photo-note pink-bounce">Photo · Avery Rose</div>
+        </div>
+
+        <div>
+          <h2 class="details-heading">She’s finally here.</h2>
+          <p class="details-sub">
+            After months of anticipation, we’re overjoyed to introduce our little miracle to the world.
+          </p>
+
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-label">Weight</div>
+              <div class="stat-value">7 lb 4 oz</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Length</div>
+              <div class="stat-value">20 in</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Time</div>
+              <div class="stat-value">3:24 AM</div>
+            </div>
+          </div>
+
+          <p class="message">
+            Tiny fingers, tiny toes, and a love that already feels bigger than the whole world.
+            We are so grateful for this precious gift and can’t wait for you to meet her.
+          </p>
+
+          <p class="parents">
+            With love,<br />
+            <strong>Emma &amp; Daniel Carter</strong><br />
+            and big brother <strong>Liam</strong>
+          </p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        Made with love · Carter Family · 2026
+      </footer>
+
+    </section>
+  </main>
+</body>
+</html>
